@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import {
+  HashRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+import { connect } from 'react-redux';
+import ProtectedRoute from './components/ProtectedRoute';
+import WritePage from './pages/WritePage/WritePage';
+import Nav from './components/NavBar/NavBar';
+import HomePage from './pages/HomePage/HomePage'
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment
+    this.props.dispatch({ type: 'FETCH_USER' });
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Nav />
+          <Switch>
+            <Redirect exact from="/" to="/home" />
+            <ProtectedRoute exact path="/home" component={HomePage} />
+            <ProtectedRoute exact path="/write" component={WritePage} />
+            <ProtectedRoute exact path="/profile" component={ProfilePage} />
+            {/* <ProtectedRoute exact path="/profile" component={Profile} />
+            <ProtectedRoute exact path="/write" component={EditorContainer} />
+            <ProtectedRoute exact path="/edit-writing" component={EditEntry} /> */}
+            {/* <ProtectedRoute
+              exact
+              path="/prompt-manager"
+              component={PromptManager}
+            /> */}
+            <Route render={() => <h1>404</h1>} />
+          </Switch>
+          {/* <Footer /> */}
+        </div>
+      </Router>
+    );
+  }
 }
 
-export default App;
+export default connect()(App);
