@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 // import { Container, Col, Row } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
 
 
 // const moment = require('moment');
 
-const StreakCounter = (props) => {
+// const StreakCounter = (props) => {
 //   const [streak, setStreak] = useState(0);
 
 //   const getEntries = () => {
@@ -51,7 +51,7 @@ const StreakCounter = (props) => {
 //       setStreak(streak + 1);
 //     }
 //   };
-  return (
+  // return (
     // <Container fluid="md">
     //   {entryLength && getStreak()}
     //   <Row>
@@ -69,12 +69,12 @@ const StreakCounter = (props) => {
     //     </Col>
     //   </Row>
     // </Container>
-<text>Streak Counter</text>  );
-};
+{/* <text>Streak Counter</text>  ); */}
+// };
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-  entry: state.entry,
-});
+// const mapStateToProps = (state) => ({
+//   user: state.user,
+//   entry: state.entry,
+// });
 
-export default connect(mapStateToProps)(StreakCounter);
+// export default connect(mapStateToProps)(StreakCounter);

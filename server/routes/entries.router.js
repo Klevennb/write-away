@@ -5,7 +5,6 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.post('/', (req, res) => {
-  console.log(req);
   const userID = req.user.id;
   const contents = req.body.contents || "7";
   const  title  = req.body.title || "7";

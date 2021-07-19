@@ -4,7 +4,8 @@ import Editor from "./Editor";
 
 function WritePage( props ) {
   const [title, setTitle ] = useState('');
-    const [editorContents, setEditorContents] = useState("");
+  const [wordCount, setWordCount] = useState(0);
+  const [editorContents, setEditorContents] = useState();
 
 
   const changeTitle = (event) => {
@@ -12,18 +13,26 @@ function WritePage( props ) {
   }
   
   const checkState = () => {
-    console.log(title, editorContents);
+    console.log(title, editorContents, wordCount);
   }
 
   const saveEntry = () => {
     if (title && editorContents !== null) {
-      props.dispatch({ type: "ADD_ENTRY", payload: {contents: editorContents, title: title} });
+      props.dispatch({
+        type: "ADD_ENTRY",
+        payload: {
+          contents: editorContents,
+          title: title,
+          entry_length: wordCount,
+        },
+      });
     }
   }
 
   const updateSaveContents = useCallback(
-    (entry) => {
+    (entry, count) => {
       setEditorContents(entry);
+      setWordCount(count)
     },
     [],
   )
