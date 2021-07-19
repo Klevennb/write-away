@@ -3,7 +3,7 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 // import promptSaga from './promptSaga';
-// import entrySaga from './entrySaga';
+import entrySaga from './entrySaga';
 // import genreSaga from './genreSaga';
 // import promptTypeSaga from './promptTypeSaga';
 
@@ -20,7 +20,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     // promptSaga(),
-    // entrySaga(),
+    entrySaga(),
     // genreSaga(),
     // promptTypeSaga(),
   ]);

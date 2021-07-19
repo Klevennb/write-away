@@ -10,7 +10,7 @@ const passport = require('./modules/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 // const promptsRouter = require('./routes/prompts.router');
-// const entriesRouter = require('./routes/entries.router');
+const entriesRouter = require('./routes/entries.router');
 // const genresRouter = require('./routes/genres.router');
 
 // Body parser middleware
@@ -27,7 +27,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 // app.use('/api/prompts', promptsRouter);
-// app.use('/api/entries', entriesRouter);
+app.use('/api/entries', entriesRouter);
 // app.use('/api/genres', genresRouter);
 
 // Serve static files

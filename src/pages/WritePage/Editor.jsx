@@ -3,14 +3,15 @@ import { ContentState, convertToRaw } from 'draft-js';
 import { Editor as Weditor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const Editor = () => {
+const Editor = ({updateSaveContents}) => {
   let _contentState = ContentState.createFromText('');
   const raw = convertToRaw(_contentState)
   const [contentState, setContentState] = useState(raw) // ContentState JSON
 
   useEffect(() => {
-    console.log(contentState);
-  }, [contentState]);
+    updateSaveContents(contentState);
+  }, [contentState, updateSaveContents]);
+
   return (
     <div className="App">
       <Weditor
