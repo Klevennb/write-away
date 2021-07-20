@@ -6,7 +6,7 @@ const HomePage = (props) => {
     const history = { props };
   return (
   <div>
-    <StreakCounter   history = { history } />
+    {/* <StreakCounter   history = { history } /> */}
         <button><Link to="/write">Write!</Link></button>
 
     {/* <Dashboard /> */}
