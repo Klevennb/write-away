@@ -38,11 +38,13 @@ function WritePage( props ) {
   )
 
   return (
-    <div style={styles.editor} class="row justify-content-center">
+    <div  class="row justify-content-center">
       <input placeholder="Set Title" onChange={changeTitle} />
       <button onClick={checkState}>Check State</button>
-      <div className="col-4">
-        <Editor updateSaveContents={updateSaveContents} />
+      <div className="col-4" >
+        <div style={styles.editor}>
+          <Editor updateSaveContents={updateSaveContents} />
+        </div>
       </div>
       <button onClick={saveEntry}>Save</button>
     </div>
@@ -57,15 +59,4 @@ const styles = {
   editor: {
     backgroundColor: "blue",
   },
-  // item: {
-  //   color: "black"
-
-  //   complete: {
-  //     textDecoration: "line-through"
-  //   },
-
-  //   due: {
-  //     color: "red"
-  //   }
-  // },
 };
