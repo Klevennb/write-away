@@ -6,14 +6,7 @@ import { connect } from "react-redux";
 
 
 const ProfilePage = (props) => {
-    let user = {user};
-
-    useEffect(() => {
-      user = props.user;
-      console.log(user);
-    }, [props.user]);
-
-    // const edit
+  let user = props.user;
 
   return (
     <div>
@@ -28,9 +21,6 @@ const ProfilePage = (props) => {
         {" "}
         <text>{JSON.stringify(user.current_streak)}</text>
         <button
-          // onClick={() => {
-          //   this.props.dispatch({ type: "SET_TO_LOGIN_MODE" });
-          // }}
         >
           Edit
         </button>

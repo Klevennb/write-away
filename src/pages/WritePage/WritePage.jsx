@@ -38,7 +38,7 @@ function WritePage( props ) {
   )
 
   return (
-    <div  class="row justify-content-center">
+    <div  className="row justify-content-center">
       <input placeholder="Set Title" onChange={changeTitle} />
       <button onClick={checkState}>Check State</button>
       <div className="col-4" >
