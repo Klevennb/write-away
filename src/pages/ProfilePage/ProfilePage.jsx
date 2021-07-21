@@ -1,5 +1,4 @@
-import React, {useEffect} from "react";
-import StreakCounter from "../../components/StreakCounter/StreakCounter";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import {Row} from 'react-bootstrap'
 import { connect } from "react-redux";
@@ -7,7 +6,16 @@ import { connect } from "react-redux";
 
 const ProfilePage = (props) => {
   let user = props.user;
+  const [wordGoal, setWordGoal] = useState(user.word_goal);
 
+  const editGoal = () => {
+    // props.dispatch({
+    //   type: "ADD_ENTRY",
+    //   payload: {
+    //     newGoal: wordGoal,
+    //   },
+    // });
+  }
   return (
     <div>
       <h1>My Info</h1>
@@ -36,7 +44,7 @@ const ProfilePage = (props) => {
       </Row>
       <Row>
         <text>{JSON.stringify(user.word_goal)}</text>
-        <button>Edit</button>
+        <button onClick={editGoal}>Edit</button>
       </Row>
     </div>
   );
