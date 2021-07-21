@@ -18,20 +18,15 @@ const ProfilePage = (props) => {
   }
   return (
     <div>
-      <h1>My Info</h1>
+      <h1>My Information</h1>
 
       <Row>
         {" "}
         <text target>{user.username}</text>
-        <button>Edit</button>
       </Row>
       <Row>
         {" "}
         <text>{JSON.stringify(user.current_streak)}</text>
-        <button
-        >
-          Edit
-        </button>
       </Row>
       <Row>
         {" "}
