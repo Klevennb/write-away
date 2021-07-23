@@ -24,4 +24,15 @@ router.post('/', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    const userID = req.user.id;
+const queryText = 'SELECT * FROM writing_entry WHERE author_id = ($1);';
+ pool.query(queryText,
+    [userID])
+    .then((results) => res.send(results.rows))
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+})
 module.exports = router;

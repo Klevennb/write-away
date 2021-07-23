@@ -6,7 +6,6 @@ import './NavBar.css';
 
 const Nav = (props) => {
   const user = { props };
-  console.log(user.props.user);
   return (
     <div className="navbar navbar-expand-md navcolor">
       <Link to="/home">
@@ -28,9 +27,9 @@ const Nav = (props) => {
             <LogOutButton className=" nav-item nav-link" />
           </>
         )}
-        {/* <Link className="nav-link nav-item" to="/prompt-manager">
-          Prompt Manager
-        </Link> */}
+        <Link className="nav-link nav-item" to="/about">
+          About
+        </Link>
         {/* <Link className="nav-link nav-item" to="/about">
           About
         </Link> */}
