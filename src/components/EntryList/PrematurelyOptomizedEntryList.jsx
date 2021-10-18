@@ -56,7 +56,7 @@ const EntryList = ({ type }) => {
 
   const handleEdit = (entry) => {
     dispatch({ type: "SET_ENTRY_TO_EDIT", payload: entry });
-  }
+  };
   return (
     <div>
       {allEntries.length > 0 ? (
@@ -85,7 +85,7 @@ const EntryList = ({ type }) => {
                       <button>Checkbox</button>
                     </td>
                     <td>
-                      <button onClick={()=> handleEdit(entry)}>
+                      <button onClick={() => handleEdit(entry)}>
                         <Link to="/edit-writing">Edit</Link>
                       </button>
                     </td>

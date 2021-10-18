@@ -27,7 +27,7 @@ const Editor = ({updateSaveContents}) => {
   return (
     <div className="App">
       <Weditor
-        defaultContentState={contentState}
+        initialContentState={contentState}
         onContentStateChange={setContentState}
         wrapperClassName="wrapper-class"
         editorClassName="editor-class"

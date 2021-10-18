@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import StreakCounter from '../../components/StreakCounter/StreakCounter'
 import { Link } from 'react-router-dom';

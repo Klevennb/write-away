@@ -27,9 +27,25 @@ function* getAllEntries(action) {  //Entry GET
   }
 } //End GET
 
+function* editEntry(action) {  //Entry GET
+  try {
+    const config = {
+      headers: { 'Content-Type': 'application/json' },
+      withCredentials: true,
+    };
+    const response = yield axios.put('/api/entries', action.payload, config);
+    yield put({ type: 'SET_ENTRIES', payload: response.data });
+
+  } catch (error) {
+    console.log('Edit entry post failed. Error: ', error);
+  }
+} //End GET
+
 function* entrySaga() {
   yield takeEvery('ADD_ENTRY', addEntry);
   yield takeEvery('GET_ALL_ENTRIES', getAllEntries);
+    yield takeEvery('EDIT_ENTRY', editEntry);
+
   // TODO: getPublicEntries
 }
 
