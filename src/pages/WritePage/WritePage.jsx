@@ -32,7 +32,7 @@ function WritePage( props ) {
   const updateSaveContents = useCallback(
     (entry, count) => {
       setEditorContents(entry);
-      // setWordCount(count)
+      setWordCount(count)
     },
     [],
   )
