@@ -76,7 +76,6 @@ const ProfilePage = (props) => {
 
       <EntryList type='user' />
 </div>
-
     </div>
   );
 };
