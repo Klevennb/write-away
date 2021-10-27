@@ -69,7 +69,7 @@
     //     </Col>
     //   </Row>
     // </Container>
-{/* <text>Streak Counter</text>  ); */}
+ // {/* <text>Streak Counter</text>  ); */}
 // };
 
 // const mapStateToProps = (state) => ({

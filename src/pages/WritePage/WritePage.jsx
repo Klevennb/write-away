@@ -11,10 +11,6 @@ function WritePage( props ) {
   const changeTitle = (event) => {
     setTitle(event.target.value);
   }
-  
-  const checkState = () => {
-    console.log(title, editorContents, wordCount);
-  }
 
   const saveEntry = () => {
     if (title && editorContents !== null) {
@@ -39,8 +35,8 @@ function WritePage( props ) {
 
   return (
     <div  className="row justify-content-center">
-      <input placeholder="Set Title" onChange={changeTitle} />
-      <button onClick={checkState}>Check State</button>
+      <input style={{marginLeft: '20px', marginRight:'20px'}} placeholder="Set Title" onChange={changeTitle} />
+      <button>Get Prompt</button>
       <div className="col-4" >
         <div style={styles.editor}>
           <Editor updateSaveContents={updateSaveContents} />

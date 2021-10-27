@@ -11,7 +11,8 @@ import WritePage from './pages/WritePage/WritePage';
 import Nav from './components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage'
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-
+import AboutPage from './pages/AboutPage/AboutPage';
+import EditEntryPage from './pages/EditEntryPage/EditEntryPage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -33,9 +34,8 @@ class App extends Component {
             <ProtectedRoute exact path="/home" component={HomePage} />
             <ProtectedRoute exact path="/write" component={WritePage} />
             <ProtectedRoute exact path="/profile" component={ProfilePage} />
-            {/* <ProtectedRoute exact path="/profile" component={Profile} />
-            <ProtectedRoute exact path="/write" component={EditorContainer} />
-            <ProtectedRoute exact path="/edit-writing" component={EditEntry} /> */}
+            <ProtectedRoute exact path="/about" component={AboutPage} />
+            <ProtectedRoute exact path="/edit-writing" component={EditEntryPage} /> 
             {/* <ProtectedRoute
               exact
               path="/prompt-manager"

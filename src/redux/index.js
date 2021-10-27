@@ -3,10 +3,10 @@ import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
 // import prompt from './promptReducer';
-// import entry from './entryReducer';
+import entry from './entryReducer';
 // import timer from './timeReducer';
 // import edit from './editReducer';
-// import entryID from './entryIDReducer';
+import editReducer from './editReducer';
 // import genres from './genresReducer';
 // import genreSave from './genreSaveReducer';
 // import pinnedPrompt from './pinnedPrompt';
@@ -22,6 +22,8 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user,
   loginMode,
+  entry,
+  editReducer,
 });
 
 export default rootReducer;

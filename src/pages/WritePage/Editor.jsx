@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { ContentState, convertToRaw, convertFromRaw } from 'draft-js';
+import { ContentState, convertToRaw } from 'draft-js';
 import { Editor as Weditor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
+import { wordCounter } from '../../services/wordCountService'
+
 
 const Editor = ({updateSaveContents}) => {
   let _contentState = ContentState.createFromText('');
   const raw = convertToRaw(_contentState)
   const [contentState, setContentState] = useState(raw) // ContentState JSON
 
-  const getWordCount = () => {
-    let count = 0;  
-      if (contentState !== raw) {
-        contentState.blocks.forEach((block) => {
-          count = count + block.text.split(/\b\S+\b/g).length;
-        });
-      }
-    return count ? count : 0;
-  };
   useEffect(() => {
-    updateSaveContents(contentState, getWordCount());
+    updateSaveContents(contentState, wordCounter(contentState));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contentState, updateSaveContents]);
 
@@ -27,7 +21,7 @@ const Editor = ({updateSaveContents}) => {
   return (
     <div className="App">
       <Weditor
-        defaultContentState={contentState}
+        initialContentState={contentState}
         onContentStateChange={setContentState}
         wrapperClassName="wrapper-class"
         editorClassName="editor-class"
