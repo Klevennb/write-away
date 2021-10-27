@@ -14,6 +14,10 @@ const ProfilePage = (props) => {
   const editInformation = (e) => {
     const response = editProfile(e.target.value);
     console.log('edit', e.target.value, response);
+    // if (e.target.value === 'word_goal') {
+      // dispatch({ type: "EDIT_GOAL", payload: entry });
+
+    // }
   }
   const editProfile = (infoToEdit) => {
     Swal.fire({
@@ -27,6 +31,7 @@ const ProfilePage = (props) => {
       showLoaderOnConfirm: true,
       preConfirm: (login) => {
         console.log('login', login);
+        setWordGoal(login)
         return true
       },
       allowOutsideClick: () => !Swal.isLoading()
@@ -45,7 +50,7 @@ const ProfilePage = (props) => {
           <Row>
             <Col>          
               <text>My Bio: {user.bio ? JSON.stringify(user.bio): "There doesn't seem to be anything here."}</text>
-              <button>Edit Bio</button>
+              <button value="bio">Edit Bio</button>
             </Col>
           </Row>
           <Row>
@@ -57,7 +62,7 @@ const ProfilePage = (props) => {
         <Row>
           <Col>
             <text>Time Goal: {JSON.stringify(user.time_goal)}</text>
-            <button>Edit Time Goal</button>
+            <button value="timew_goal">Edit Time Goal</button>
           </Col>
           <Col>
             <text>Word Goal: {JSON.stringify(user.word_goal)}</text>
