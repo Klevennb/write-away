@@ -11,7 +11,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.post('/register', (req, res, next) => {
-    console.log('in post');
   const { username } = req.body;
   const password = encryptLib.encryptPassword(req.body.password);
 

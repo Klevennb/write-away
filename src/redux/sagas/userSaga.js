@@ -26,6 +26,8 @@ function* fetchUser() {
 }
 function* editGoal(action) {
   try {
+    console.log('in edit');
+    
     yield axios.put(`api/user/${action.payload.id}`, action.payload);
   } catch (error) {
     console.log('User edit goal failed', error);

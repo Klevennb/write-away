@@ -4,6 +4,9 @@ const pool = require('../modules/pool');
 
 const router = express.Router();
 
+const table = 'writing_entry';
+
+
 router.post('/', (req, res) => {
   const userID = req.user.id;
   const contents = req.body.contents || "7";
@@ -14,7 +17,7 @@ router.post('/', (req, res) => {
   const entryPrompt = req.body.entry_prompt || "7";
   const isPublic = false
 
-  const queryText = 'INSERT INTO writing_entry (author_id, title, contents, length, genre, time_to_write, prompt, public) VALUES ($1, $2, $3, $4, $5, $6, $7, $8);';
+  const queryText = `INSERT INTO ${table} (author_id, title, contents, length, genre, time_to_write, prompt, public) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
   pool.query(queryText,
     [userID, title, contents, entryLength, genre, timeLength,  entryPrompt, isPublic])
     .then(() => { res.sendStatus(201); })
@@ -26,7 +29,7 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
     const userID = req.user.id;
-const queryText = 'SELECT * FROM writing_entry WHERE author_id = ($1);';
+  const queryText = `SELECT * FROM ${table} WHERE author_id = ($1);`;
  pool.query(queryText,
     [userID])
     .then((results) => res.send(results.rows))
@@ -45,7 +48,7 @@ router.put('/', (req, res) => {
   const isPublic = req.body.isPublic || false;
   const entryId = req.body.entry_id;
 
-  const queryText = 'UPDATE writing_entry  SET "title" = $1, "contents" = $2, "length"= $3, "genre"= $4, "time_to_write"= $5, "public"= $6 WHERE "id" = $7;';
+  const queryText = `UPDATE ${table}  SET "title" = $1, "contents" = $2, "length"= $3, "genre"= $4, "time_to_write"= $5, "public"= $6 WHERE "id" = $7;`;
   pool.query(queryText,
     [title, contents, entryLength, genre, timeLength, isPublic, entryId])
     .then(() => { res.sendStatus(201); })

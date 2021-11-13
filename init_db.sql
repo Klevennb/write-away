@@ -6,7 +6,9 @@ CREATE TABLE "person" (
   "word_goal" int,
   "time_goal" int,
   "bio" varchar,
+  "profile_pic" varchar,
   "friends" varchar,
+  "is_deleted" boolean DEFAULT false NOT NULL,
   "created_at" timestamp DEFAULT (now())
 );
 
@@ -25,7 +27,8 @@ CREATE TABLE "writing_entry" (
   "submission_time" timestamp DEFAULT (now()),
   "time_to_write" time,
   "prompt" varchar,
-  "public" boolean
+  "public" boolean DEFAULT 'TRUE',
+  "views" int
 );
 
 CREATE TABLE "prompts" (

@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import user from './userReducer';
-// import prompt from './promptReducer';
+import promptsReducer from './promptsReducer';
 import entry from './entryReducer';
 // import timer from './timeReducer';
 // import edit from './editReducer';
@@ -24,6 +24,7 @@ const rootReducer = combineReducers({
   loginMode,
   entry,
   editReducer,
+  promptsReducer,
 });
 
 export default rootReducer;
