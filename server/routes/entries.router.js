@@ -37,18 +37,18 @@ const queryText = 'SELECT * FROM writing_entry WHERE author_id = ($1);';
 })
 
 router.put('/', (req, res) => {
-  const userID = req.user.id;
   const contents = req.body.contents || "7";
   const  title  = req.body.title || "7";
   const  genre  = req.body.genre || "7";
   const timeLength = req.body.time_to_write || '23:59:59.9999999';
   const entryLength = req.body.entry_length || "7";
   const entryPrompt = req.body.entry_prompt || "7";
-  const isPublic = false
+  const isPublic = false;
+    const entryId = req.body.entry_id;
 
-  const queryText = 'INSERT INTO writing_entry (author_id, title, contents, length, genre, time_to_write, prompt, public) VALUES ($1, $2, $3, $4, $5, $6, $7, $8);';
+  const queryText = 'UPDATE writing_entry SET title = $1, contents= $2, length= $3, genre= $4, time_to_write= $5, prompt= $6, public= $7 WHERE (id = $8);';
   pool.query(queryText,
-    [userID, title, contents, entryLength, genre, timeLength,  entryPrompt, isPublic])
+    [ title, contents, entryLength, genre, timeLength,  entryPrompt, isPublic, entryId])
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
       console.log(err);

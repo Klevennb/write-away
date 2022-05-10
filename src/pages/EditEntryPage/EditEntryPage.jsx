@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { wordCounter } from '../../services/wordCountService';
+import { wordCounter } from '../../utils/wordCounter';
 import Editor  from './EditEntryEditor'
 
 
@@ -10,9 +10,6 @@ export const EditEntryPage = () => {
       const dispatch = useDispatch();
 
 
-    useEffect(() => {
-      console.log("entry", entry);
-    }, [entry]);
 
   const [title, setTitle ] = useState(entry?.title);
   const [wordCount, setWordCount] = useState(entry?.length);
@@ -23,18 +20,15 @@ export const EditEntryPage = () => {
     setTitle(event.target.value);
   }
   
-  const checkState = () => {
-console.log("entry", editorContents, title, wordCount);  }
 
   const saveEntry = () => {
-    console.log(' save ', editorContents, entry);
     if (title && editorContents !== null) {
       dispatch({
         type: "EDIT_ENTRY",
         payload: {
           contents: editorContents,
           title: title,
-          entry_length: wordCount(editorContents),
+          entry_length: wordCounter(editorContents),
           entry_id: entry.id,
         },
       });
@@ -43,7 +37,6 @@ console.log("entry", editorContents, title, wordCount);  }
 
   const updateSaveContents = useCallback(
     (entry) => {
-      console.log('in callback', entry);
       setEditorContents(entry);
     },
     [],
@@ -53,7 +46,6 @@ console.log("entry", editorContents, title, wordCount);  }
     <div className="row justify-content-center">
       <div>{entry && <div>Sup</div>}</div>
       <input placeholder={title} onChange={changeTitle} />
-      <button onClick={checkState}>Check State</button>
       <div className="col-4">
         <div style={styles.editor}>
           {entry.contents && (
