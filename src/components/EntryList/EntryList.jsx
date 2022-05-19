@@ -82,8 +82,11 @@ const EntryList = ({ type }) => {
                     <td>{entry.submission_time}</td>
 
                     <td>
-                      <button>Checkbox</button>
-                    </td>
+                      <input
+                        name="isGoing"
+                        type="checkbox"
+                        checked={entry.public}
+                        />                     </td>
                     <td>
                       <button onClick={()=> handleEdit(entry)}>
                         <Link to="/edit-writing">Edit</Link>

@@ -3,6 +3,5 @@ export const wordCounter = ( writingContents ) => {
         writingContents.blocks.forEach((block) => {
           count = count + block.text.split(/\b\S+\b/g).length;
         });
-    //   }
     return count ? count : 0;
   };

@@ -6,8 +6,8 @@ CREATE TABLE "person" (
   "word_goal" int,
   "time_goal" int,
   "bio" varchar,
-  "friends" array,
-  "created_at" datetime DEFAULT (now())
+  "friends" varchar,
+  "created_at" timestamp DEFAULT (now())
 );
 
 CREATE TABLE "genre_types" (
@@ -19,10 +19,10 @@ CREATE TABLE "writing_entry" (
   "id" SERIAL PRIMARY KEY,
   "author_id" int,
   "title" varchar,
-  "contents" varchar[max],
+  "contents" varchar,
   "length" int,
   "genre" varchar,
-  "submission_time" datetime DEFAULT (now()),
+  "submission_time" timestamp DEFAULT (now()),
   "time_to_write" time,
   "prompt" varchar,
   "public" boolean

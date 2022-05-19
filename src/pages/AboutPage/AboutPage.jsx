@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import EntryList from '../../components/EntryList/EntryList'
 
 export const AboutPage = () => {  //This will all be moved to Profile page

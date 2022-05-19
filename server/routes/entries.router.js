@@ -38,8 +38,8 @@ const queryText = 'SELECT * FROM writing_entry WHERE author_id = ($1);';
 
 router.put('/', (req, res) => {
   const contents = req.body.contents || "7";
-  const  title  = req.body.title || "7";
-  const  genre  = req.body.genre || "7";
+  const title  = req.body.title || "7";
+  const genre  = req.body.genre || "7";
   const timeLength = req.body.time_to_write || '23:59:59.9999999';
   const entryLength = req.body.entry_length || "7";
   const entryPrompt = req.body.entry_prompt || "7";
@@ -54,5 +54,17 @@ router.put('/', (req, res) => {
       console.log(err);
       res.sendStatus(500);
     });
+
+  // router.put('/:id', (req, res) => {
+  //   let entry = req.params.id;
+  //   let content = req.body.text;
+  //   let newContent = JSON.parse(content);
+
+  //   const queryText = `UPDATE "writing_entry" SET "entry_contents"= $1
+  //                      WHERE "id" = $2;`;
+  //   pool.query(queryText, [newContent, entry])
+  //     .then(() => { res.sendStatus(201); })
+  //     .catch((err) => { next(err); });
+  // })
 });
 module.exports = router;
