@@ -1,7 +1,16 @@
+import { FC } from 'react';
+import { ConnectedComponent } from 'react-redux';
 import { Container, Footer, Header, Left, Right } from './styles';
 
 
-const Template = (props) => {
+type LayoutProps = {
+  header: any,
+  left: any,
+  right: any,
+  footer: any,
+}
+
+const Layout = (props: LayoutProps) => {
   const { header, left, right, footer } = props;
 
   return (
@@ -14,4 +23,4 @@ const Template = (props) => {
   );
 };
 
-export default Template;
+export default Layout;
