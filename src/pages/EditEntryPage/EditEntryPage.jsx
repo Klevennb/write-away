@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import { wordCounter } from '../../services/wordCountService';
-import Editor from './EditEntryEditor'
+import { wordCounter } from '../../utils/wordCounter';
+import Editor  from './EditEntryEditor'
 
 
 
@@ -10,9 +10,6 @@ export const EditEntryPage = () => {
   const dispatch = useDispatch();
 
 
-  // useEffect(() => {
-  //   console.log("entry", entry);
-  // }, [entry]);
 
   const [title, setTitle] = useState(entry?.title);
   const [wordCount, setWordCount] = useState(entry?.length);
@@ -24,6 +21,7 @@ export const EditEntryPage = () => {
   const changeTitle = (event) => {
     setTitle(event.target.value);
   }
+  
 
   const saveEntry = () => {
     if (title && editorContents !== null) {
@@ -32,7 +30,7 @@ export const EditEntryPage = () => {
         payload: {
           contents: editorContents,
           title: title,
-          entry_length: wordCount,
+          entry_length: wordCounter(editorContents),
           entry_id: entry.id,
           isPublic: isPublic, 
         },
@@ -64,8 +62,6 @@ export const EditEntryPage = () => {
           onChange={handleCheck} /> 
       </div>
       <input placeholder={title} onChange={changeTitle} />
-
-
       <div className="col-4">
         <div style={styles.editor}>
           {entry.contents && (

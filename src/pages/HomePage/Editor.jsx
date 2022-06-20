@@ -16,23 +16,6 @@ const Editor = ({ updateSaveContents }) => {
 
     const [contentState, setContentState] = useState(raw); // ContentState JSON
 
-  //   const getWordCount = () => {
-  //     let count = 0;
-  //     if (contentState !== raw) {
-  //       contentState.blocks.forEach((block) => {
-  //         count = count + block.text.split(/\b\S+\b/g).length;
-  //       });
-  //     }
-  //     return count ? count : 0;
-  //   };
-  useEffect(() => {
-        console.log("xxxtttt");
-
-    // console.log("xxx", convertFromRaw(contentState).getCurrentContent());
-    // updateSaveContents(convertToRaw(contentState));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [contentState]);
-
   return (
     <div className="App">
        <Weditor

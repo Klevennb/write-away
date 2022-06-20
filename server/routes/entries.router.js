@@ -42,12 +42,13 @@ router.put('/', (req, res) => {
   const genre  = req.body.genre || "7";
   const timeLength = req.body.time_to_write || '23:59:59.9999999';
   const entryLength = req.body.entry_length || "7";
-  const isPublic = req.body.isPublic || false;
-  const entryId = req.body.entry_id;
+  const entryPrompt = req.body.entry_prompt || "7";
+  const isPublic = false;
+    const entryId = req.body.entry_id;
 
-  const queryText = 'UPDATE writing_entry  SET "title" = $1, "contents" = $2, "length"= $3, "genre"= $4, "time_to_write"= $5, "public"= $6 WHERE "id" = $7;';
+  const queryText = 'UPDATE writing_entry SET title = $1, contents= $2, length= $3, genre= $4, time_to_write= $5, prompt= $6, public= $7 WHERE (id = $8);';
   pool.query(queryText,
-    [title, contents, entryLength, genre, timeLength, isPublic, entryId])
+    [ title, contents, entryLength, genre, timeLength,  entryPrompt, isPublic, entryId])
     .then(() => { res.sendStatus(201); })
     .catch((err) => {
       console.log(err);
