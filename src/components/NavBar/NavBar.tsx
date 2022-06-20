@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogoutButton/LogoutButton';
 import './NavBar.css';
 
-const Nav = (props) => {
+const Nav: FC = (props: any) => {
   const user = { props };
   return (
     <div className="navbar navbar-expand-md navcolor">
@@ -38,7 +38,7 @@ const Nav = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: { user: any; }) => ({
   user: state.user,
 });
 

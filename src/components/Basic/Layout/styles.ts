@@ -13,7 +13,7 @@ export const Container = styled('div')`
 export const Footer = styled('div')`
   grid-area: footer;
   > {
-    &:first-child {
+    &:first-of-type{
       height: 100%;
     }
   }
@@ -22,7 +22,7 @@ export const Footer = styled('div')`
 export const Header = styled('div')`
   grid-area: header;
   > {
-    &:first-child {
+    &:first-of-type{
       height: 100%;
     }
   }
@@ -31,7 +31,7 @@ export const Header = styled('div')`
 export const Left = styled('div')`
   grid-area: left;
   > {
-    &:first-child {
+    &:first-of-type {
       height: 100%;
     }
   }
@@ -40,7 +40,7 @@ export const Left = styled('div')`
 export const Right = styled('div')`
   grid-area: right;
   > {
-    &:first-child {
+    &:first-of-type {
       height: 100%;
     }
   }
