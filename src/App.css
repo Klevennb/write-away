@@ -19,3 +19,6 @@
     transform: rotate(360deg);
   }
 }
+iframe {
+  pointer-events: none;
+}

@@ -5,22 +5,13 @@ export const Container = styled('div')`
   display: grid;
   grid-template-rows: 1fr 6fr 0.75fr;
   grid-template-areas:
-    'header header'
-    'left  right'
-    'footer footer';
+    'left right right'
+    'left right right'
+    'footer footer footer';
 `;
 
 export const Footer = styled('div')`
   grid-area: footer;
-  > {
-    &:first-of-type{
-      height: 100%;
-    }
-  }
-`;
-
-export const Header = styled('div')`
-  grid-area: header;
   > {
     &:first-of-type{
       height: 100%;

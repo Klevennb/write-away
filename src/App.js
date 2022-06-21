@@ -8,7 +8,7 @@ import {
 import { connect } from 'react-redux';
 import ProtectedRoute from './components/ProtectedRoute';
 import WritePage from './pages/WritePage/WritePage';
-// import Nav from './components/NavBar/NavBar';
+import Nav from 'components/NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage'
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import AboutPage from './pages/AboutPage/AboutPage';
@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Nav /> */}
+          <Nav />
           <Switch>
             <Redirect exact from="/" to="/home" />
             <ProtectedRoute exact path="/home" component={LandingPage} />

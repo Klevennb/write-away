@@ -1,23 +1,20 @@
-import { ConnectedComponent } from 'react-redux';
-import { Container, Footer, Header, Left, Right } from './styles';
-import Placeholder from '../Placeholder';
-import Nav from '../../NavBar/NavBar'
+import { Container, Footer, Left, Right } from './styles';
+import { ReactNode } from 'react';
+
 type LayoutProps = {
-  header: any,
-  left: any,
-  right: any,
-  footer: any,
+  left?: ReactNode;
+  right?: ReactNode;
+  footer?: ReactNode;
 }
 
 const Layout = (props: LayoutProps) => {
-  const { header, left, right, footer } = props;
+  const { left, right, footer } = props;
   
   return (
     <Container>
-      <Header><Nav /></Header>
-      <Left>test</Left>
-      <Right>test</Right>
-      <Footer>test</Footer>
+      <Left>{left}</Left>
+      <Right>{right}</Right>
+      <Footer>{footer}</Footer>
     </Container>
   );
 };
