@@ -13,15 +13,14 @@
 
 .nav {
   overflow: hidden;
-  background-color:sienna;
   display: flex;
-  /* height: ; */
 }
 
 .nav-link {
-  float: left;
-  color: #f2f2f2;
-  background-color: sienna;
+  float: right;
+  color: #f7f3f3 !important;
+  background-color: #2450EC;
+  border-radius: 25px;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -43,10 +42,7 @@
   float: right;
 }
 
-.blah{
- align-items: flex-end;
-}
 .navcolor{
     color: #f2f2f2;
-  background-color: sienna;
+  background-color: #2450EC;
 }

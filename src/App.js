@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
@@ -7,9 +7,8 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ProtectedRoute from './components/ProtectedRoute';
-import WritePage from './pages/WritePage/WritePage';
+import WritePage from 'pages/WritePage';
 import Nav from 'components/NavBar/NavBar';
-import HomePage from './pages/HomePage/HomePage'
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import EditEntryPage from './pages/EditEntryPage/EditEntryPage';
@@ -21,7 +20,6 @@ import './App.css';
 class App extends Component {
 
   componentDidMount() {
-    // eslint-disable-next-line react/destructuring-assignment
     this.props.dispatch({ type: 'FETCH_USER' });
   }
 
@@ -36,15 +34,9 @@ class App extends Component {
             <ProtectedRoute exact path="/write" component={WritePage} />
             <ProtectedRoute exact path="/profile" component={ProfilePage} />
             <ProtectedRoute exact path="/about" component={AboutPage} />
-            <ProtectedRoute exact path="/edit-writing" component={EditEntryPage} /> 
-            {/* <ProtectedRoute
-              exact
-              path="/prompt-manager"
-              component={PromptManager}
-            /> */}
+            <ProtectedRoute exact path="/edit-writing" component={EditEntryPage} />
             <Route render={() => <h1>404</h1>} />
           </Switch>
-          {/* <Footer /> */}
         </div>
       </Router>
     );

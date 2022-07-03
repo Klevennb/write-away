@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { wordCounter } from '../../utils/wordCounter';
 import Editor  from './EditEntryEditor'
@@ -12,6 +12,7 @@ export const EditEntryPage = () => {
 
 
   const [title, setTitle] = useState(entry?.title);
+  // eslint-disable-next-line no-unused-vars
   const [wordCount, setWordCount] = useState(entry?.length);
   const [editorContents, setEditorContents] = useState();
   const [isPublic, setIsPublic] = useState(entry?.public);
@@ -21,7 +22,7 @@ export const EditEntryPage = () => {
   const changeTitle = (event) => {
     setTitle(event.target.value);
   }
-  
+
 
   const saveEntry = () => {
     if (title && editorContents !== null) {
@@ -32,7 +33,7 @@ export const EditEntryPage = () => {
           title: title,
           entry_length: wordCounter(editorContents),
           entry_id: entry.id,
-          isPublic: isPublic, 
+          isPublic: isPublic,
         },
       });
     }
@@ -53,13 +54,13 @@ export const EditEntryPage = () => {
     <div className="row justify-content-center">
 
       <text style={styles.title}>{title}</text>
-      <div className="row" >           
+      <div className="row" >
         <text>Do you want to make this public?</text>
         <input
           name="isGoing"
           type="checkbox"
           checked={isPublic}
-          onChange={handleCheck} /> 
+          onChange={handleCheck} />
       </div>
       <input placeholder={title} onChange={changeTitle} />
       <div className="col-4">

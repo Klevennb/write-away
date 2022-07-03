@@ -5,9 +5,9 @@ export const Container = styled('div')`
   display: grid;
   grid-template-rows: 1fr 6fr 0.75fr;
   grid-template-areas:
-    'left right right'
-    'left right right'
-    'footer footer footer';
+    'left right right right'
+    'left right right right'
+    'footer footer footer footer';
 `;
 
 export const Footer = styled('div')`
@@ -21,6 +21,7 @@ export const Footer = styled('div')`
 
 export const Left = styled('div')`
   grid-area: left;
+  width: 400px;
   > {
     &:first-of-type {
       height: 100%;
