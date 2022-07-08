@@ -3,6 +3,7 @@ import Placeholder from 'components/Basic/Placeholder';
 import { FC } from 'react';
 import { SideBar } from 'components/Sidebar';
 import { useSelector } from 'react-redux';
+import LandingPageButtons from 'components/LandingPageButtons'
 
 const LandingPage: FC = ( ) => {
       const user = useSelector((state: any) => state.user);
@@ -10,7 +11,7 @@ const LandingPage: FC = ( ) => {
     return(
         <Layout 
             left={<SideBar user={user}/>} 
-            right={<Placeholder/>} 
+            right={<LandingPageButtons/>} 
             footer={<Placeholder/>}
         />
     )

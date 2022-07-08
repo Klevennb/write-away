@@ -1,8 +1,9 @@
 import { useHistory } from "react-router-dom";
 import { Container, UserDetails } from "./styles";
+import { UserType } from "constants/models";
 
 interface SideBarProps {
-    user: any
+    user: UserType;
 }
 
 export const SideBar = (props: SideBarProps) => {
@@ -15,7 +16,7 @@ export const SideBar = (props: SideBarProps) => {
         <Container>
             <UserDetails>
                 <text onClick={navigateToProfile}>{user?.username}</text>
-                <text>{user?.currentStreak || 0}</text>
+                <text>{user?.current_streak || 0}</text>
                 <text>Goal: {user?.word_goal || 'todo'}</text>
             </UserDetails>
         </Container>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ContentState, convertToRaw, RichUtils } from 'draft-js';
+import { ContentState, convertToRaw } from 'draft-js';
 import { Editor as Weditor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
@@ -60,7 +60,6 @@ const Editor = (props: any) => {
         wrapperClassName="wrapper-class"
         editorClassName="editor-class"
         toolbarClassName="toolbar-class"
-        onTab={}
       />
     </div>
   )

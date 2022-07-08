@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef, useEffect } from "react";
 import Editor from "./Editor";
 import dayjs from 'dayjs'
 import { Container, EditorBox, StyledInput, StyledButton } from "./styles";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
 const  WritePage = ( props: any ) => {
   const [title, setTitle ] = useState(dayjs(Date.now()).format('DD/MM/YYYY'));
